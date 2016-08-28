@@ -1,13 +1,12 @@
 from abc import ABC, abstractmethod
 
-from data import Data
 from observable import WeatherData
 
 
 class Observer(ABC):
 
     @abstractmethod
-    def update(cls):
+    def update(self, data):
         pass
 
 
@@ -19,23 +18,20 @@ class DisplayElement(ABC):
 
 
 class BaseDisplay(Observer, DisplayElement):
-    data = Data(None, None, None)
 
     def __init__(self, weather_data):
         self.weather_data = weather_data
         self.weather_data.register_observer(self)
 
-    @classmethod
-    def update(cls, data):
+    def update(self, data):
         if isinstance(data, WeatherData):  # запрос данных
-            cls.data = data.get_data()
+            self.data = data.get_data()
         else:  # активная доставка
-            cls.data = data
-        cls.display()
+            self.data = data
+        self.display()
 
-    @classmethod
-    def display(cls):
-        print(cls.__name__, cls.data)
+    def display(self):
+        print(self.__class__.__name__, self.data)
 
 
 class ConditionsDisplay(BaseDisplay):
