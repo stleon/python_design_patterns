@@ -7,7 +7,7 @@ from observable import WeatherData
 class Observer(ABC):
 
     @abstractmethod
-    def update(self, data, observable=None):
+    def update(cls):
         pass
 
 
