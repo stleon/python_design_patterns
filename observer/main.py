@@ -2,7 +2,6 @@ from data import Data
 from observable import WeatherData
 from observer import ConditionsDisplay, StatisticsDisplay, ForecastDisplay
 
-
 if __name__ == '__main__':
 
     weather_data = WeatherData()

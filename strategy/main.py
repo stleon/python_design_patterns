@@ -6,7 +6,7 @@ if __name__ == '__main__':
     mallard.perform_fly()
     mallard.perform_quack()
 
-    print('='*50)
+    print('=' * 50)
 
     model = ModelDuck()
     model.perform_fly()

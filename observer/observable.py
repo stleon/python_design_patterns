@@ -4,7 +4,6 @@ from data import Data
 
 
 class Observable(ABC):
-
     @abstractmethod
     def register_observer(self, observer):
         pass

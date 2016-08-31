@@ -4,21 +4,18 @@ from observable import WeatherData
 
 
 class Observer(ABC):
-
     @abstractmethod
     def update(self, data):
         pass
 
 
 class DisplayElement(ABC):
-
     @abstractmethod
     def display(cls):
         pass
 
 
 class BaseDisplay(Observer, DisplayElement):
-
     def __init__(self, weather_data):
         self.weather_data = weather_data
         self.weather_data.register_observer(self)
